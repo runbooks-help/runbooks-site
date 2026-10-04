@@ -7,7 +7,7 @@ landing page in plain HTML and CSS.
 
 The tokens and fonts come from the shared
 [design system](https://github.com/runbooks-help/design-system), fetched at a
-pinned tag by `scripts/build.sh` (`DESIGN_SYSTEM_VERSION`, default `v0.2.0`) —
+pinned tag by `scripts/build.sh` (`DESIGN_SYSTEM_VERSION`, default `v0.2.0`);
 nothing here re-declares a colour or a font.
 
 ## Build & preview
@@ -27,4 +27,4 @@ the repository's Pages settings.
 
 ## Licence
 
-FSL-1.1-MIT — see [LICENSE](LICENSE).
+FSL-1.1-MIT. See [LICENSE](LICENSE).
