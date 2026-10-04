@@ -7,7 +7,7 @@ landing page in plain HTML and CSS.
 
 The tokens and fonts come from the shared
 [design system](https://github.com/runbooks-help/design-system), fetched at a
-pinned tag by `scripts/build.sh` (`DESIGN_SYSTEM_VERSION`, default `v0.2.0`);
+pinned tag by `scripts/build.sh` (`DESIGN_SYSTEM_VERSION`, default `v0.2.1`);
 nothing here re-declares a colour or a font.
 
 ## Build & preview

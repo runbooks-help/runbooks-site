@@ -4,7 +4,7 @@
 # tokens and fonts cannot drift from the app.
 set -euo pipefail
 
-VERSION="${DESIGN_SYSTEM_VERSION:-v0.2.0}"
+VERSION="${DESIGN_SYSTEM_VERSION:-v0.2.1}"
 BASE="https://github.com/runbooks-help/design-system/releases/download/${VERSION}"
 OUT="${1:-_site}"
 
