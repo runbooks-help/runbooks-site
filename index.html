@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Runbooks — operational runbooks as code</title>
+		<meta
+			name="description"
+			content="Runbooks is a small, self-hosted web app that turns a directory of Markdown files into interactive, step-by-step operational runbooks. No database, no CMS."
+		/>
+		<link rel="canonical" href="https://runbooks.help/" />
+		<meta property="og:title" content="Runbooks" />
+		<meta
+			property="og:description"
+			content="Operational runbooks as code: a self-hosted app that serves your Markdown procedures, step by step."
+		/>
+		<meta property="og:url" content="https://runbooks.help/" />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary" />
+		<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+		<link rel="stylesheet" href="design-system/tokens.css" />
+		<link rel="stylesheet" href="design-system/fonts.css" />
+		<link rel="stylesheet" href="styles.css" />
+		<script>
+			// The design system is dark-first; honour a light OS preference.
+			try {
+				if (matchMedia("(prefers-color-scheme: light)").matches) {
+					document.documentElement.dataset.theme = "light";
+				}
+			} catch (e) {}
+		</script>
+	</head>
+	<body>
+		<header class="site-header">
+			<a class="brand" href="/" aria-label="Runbooks home">
+				<img src="design-system/brand/logomark.svg" alt="" width="30" height="30" />
+				<span class="brand-word">run<span>books</span></span>
+			</a>
+			<nav class="site-nav">
+				<a href="https://docs.runbooks.help">Docs</a>
+				<a href="https://github.com/runbooks-help/runbooks">GitHub</a>
+				<a class="btn btn-primary" href="https://docs.runbooks.help/install">Get started</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="hero">
+				<p class="eyebrow">Self-hosted · source-available · FSL-1.1-MIT</p>
+				<h1>Prod broke? Runbooks help.</h1>
+				<p class="lede">
+					Runbooks turns a directory of Markdown files into interactive, step-by-step
+					operational runbooks. Files are the content, the path is the sidebar, and a
+					<code>##</code> heading is a tickable step. No database, no CMS, no authoring UI.
+				</p>
+				<div class="cta">
+					<a class="btn btn-primary" href="https://docs.runbooks.help/install">Read the docs</a>
+					<a class="btn" href="https://github.com/runbooks-help/runbooks">View the source</a>
+				</div>
+				<pre class="quickstart" aria-label="Run Runbooks in Docker"><code>docker run -d --name runbooks \
+  -p 8090:8090 \
+  -v "$PWD/content:/app/content" \
+  -v runbooks-data:/app/data \
+  ghcr.io/runbooks-help/runbooks:latest</code></pre>
+			</section>
+
+			<section class="features">
+				<h2>Built for the moment you need it</h2>
+				<div class="grid">
+					<article class="card">
+						<h3>Files are the content</h3>
+						<p>
+							A runbook is Markdown with frontmatter. You edit files in your editor and
+							commit them; the app reads a directory at runtime, so a content change needs
+							no rebuild and no redeploy.
+						</p>
+					</article>
+					<article class="card">
+						<h3>Steps, not walls of text</h3>
+						<p>
+							A <code>##</code> heading is a numbered, tickable, collapsible step — or an
+							unnumbered section when you want reference prose. One page can mix both.
+						</p>
+					</article>
+					<article class="card">
+						<h3>Readable under duress</h3>
+						<p>
+							Symptom-first titles, collapsible steps, code blocks with a per-block done
+							box, decision callouts, a rollback section, and a Zen mode that shows one
+							step at a time.
+						</p>
+					</article>
+					<article class="card">
+						<h3>Inputs that never leave the page</h3>
+						<p>
+							Frontmatter <code>vars</code> become <code>{{TOKEN}}</code> substitutions
+							inside code blocks, filled in the browser — substituted client-side and
+							never sent to the server.
+						</p>
+					</article>
+					<article class="card">
+						<h3>Notes and a timeline</h3>
+						<p>
+							Ticking a step records a timestamped line in the notes panel. Export them,
+							or sync them to a git repo you own.
+						</p>
+					</article>
+					<article class="card">
+						<h3>An agent surface</h3>
+						<p>
+							Every page is raw Markdown at <code>/&lt;slug&gt;.md</code>, indexed at
+							<code>/llms.txt</code>, with a full-body search API — so LLMs and scripts read
+							the same runbooks you do.
+						</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="split">
+				<div>
+					<h2>Your knowledge, your infrastructure</h2>
+					<p>
+						Runbooks is one Go binary in a container. It reads your <code>content/</code>
+						directory, holds no database unless you turn on identity, and has no phone-home.
+						Backups are files; content is portable Markdown.
+					</p>
+					<p>
+						Passkey (WebAuthn) sign-in is built in and free. It is off by default — a public
+						runbook site needs no accounts — and when on, identity lives in SQLite, MySQL or
+						PostgreSQL behind a small interface with no foreign keys.
+					</p>
+				</div>
+				<div>
+					<h2>Not for everyone, on purpose</h2>
+					<p>
+						Runbooks is for solo operators, small teams and game studios who keep their
+						operational knowledge in files.
+					</p>
+					<p class="callout">
+						Not for you if you have a procurement team. No enterprise tier, no MSA process,
+						no “Book a demo”.
+					</p>
+				</div>
+			</section>
+
+			<section class="editions">
+				<h2>Editions</h2>
+				<p class="section-lede">
+					One codebase, two ways to consume it. The Open edition is the whole app — the paid
+					things are official builds and hosted services, never withheld features.
+				</p>
+				<div class="grid">
+					<article class="card edition">
+						<h3>Open</h3>
+						<p class="price">Free</p>
+						<p>
+							The whole self-hostable app: git sync, passkey identity, proxy auth, the agent
+							surface. Source-available, buildable, yours.
+						</p>
+					</article>
+					<article class="card edition">
+						<h3>Self-host licence</h3>
+						<p class="price">Buy once</p>
+						<p>
+							Official signed builds and updates for one major release, and support while
+							your entitlement is current. Renewal is always optional.
+						</p>
+					</article>
+					<article class="card edition">
+						<h3>Hosted</h3>
+						<p class="price">Per organisation</p>
+						<p>
+							We run it, including identity and the organisation layer (SSO/OIDC, RBAC,
+							org-scale audit export). Unlimited seats.
+						</p>
+					</article>
+				</div>
+				<p class="licence-note">
+					Source-available under <a href="https://github.com/runbooks-help/runbooks/blob/main/LICENSE">FSL-1.1-MIT</a>:
+					free to self-host, modify and use commercially, with no competing-use right, converting to MIT two years after each
+					release.
+				</p>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="footer-brand">
+				<img src="design-system/brand/logomark.svg" alt="" width="24" height="24" />
+				<span>Runbooks</span>
+			</div>
+			<nav>
+				<a href="https://docs.runbooks.help">Docs</a>
+				<a href="https://github.com/runbooks-help/runbooks">Source</a>
+				<a href="https://github.com/runbooks-help/runbooks/blob/main/LICENSE">Licence</a>
+				<a href="https://github.com/runbooks-help/runbooks/issues">Issues</a>
+			</nav>
+			<p class="colophon">
+				<code>ghcr.io/runbooks-help/runbooks</code>
+			</p>
+		</footer>
+	</body>
+</html>
