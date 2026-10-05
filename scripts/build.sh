@@ -12,6 +12,8 @@ rm -rf "$OUT"
 mkdir -p "$OUT/design-system"
 
 cp index.html supporters.html styles.css CNAME .nojekyll "$OUT/"
+mkdir -p "$OUT/brand"
+cp brand/*.svg "$OUT/brand/"
 
 curl -fsSL "$BASE/tokens.css" -o "$OUT/design-system/tokens.css"
 curl -fsSL "$BASE/fonts.css" -o "$OUT/design-system/fonts.css"

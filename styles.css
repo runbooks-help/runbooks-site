@@ -178,6 +178,38 @@ section {
 	font-style: italic;
 }
 
+/* Trusted strip: one partner logo under the hero. The wordmark is shown as
+   supplied (full colour); only its ink swaps with the theme. */
+.trusted {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--space-2) var(--space-4);
+	padding-block: var(--space-5);
+}
+.trusted-label {
+	margin: 0;
+	color: var(--muted);
+	font-size: var(--text-sm);
+}
+.trusted-logo {
+	display: inline-flex;
+	align-items: center;
+}
+.trusted-logo img {
+	height: 30px;
+	width: auto;
+}
+.trusted-on-light {
+	display: none;
+}
+html[data-theme="light"] .trusted-on-dark {
+	display: none;
+}
+html[data-theme="light"] .trusted-on-light {
+	display: block;
+}
+
 /* Supporters are bracketed names, not filled pills (design-system badge rule). */
 .supporters {
 	list-style: none;
