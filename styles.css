@@ -232,20 +232,6 @@ section {
 	letter-spacing: 0.06em;
 	color: var(--muted);
 }
-.honour {
-	max-width: var(--measure);
-	margin-top: var(--space-5);
-	padding: var(--space-3) var(--space-4);
-	background: var(--surface);
-	border: 1px solid var(--border);
-	border-left: 3px solid var(--accent);
-	border-radius: var(--radius-md);
-	color: var(--text);
-	font-size: var(--text-sm);
-}
-.honour strong {
-	color: var(--accent-strong);
-}
 .licence-note {
 	max-width: var(--measure);
 	margin-top: var(--space-5);
