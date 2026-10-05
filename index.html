@@ -38,6 +38,7 @@
 			</a>
 			<nav class="site-nav">
 				<a href="https://docs.runbooks.help">Docs</a>
+				<a href="#faq">FAQ</a>
 				<a href="https://github.com/runbooks-help/runbooks">GitHub</a>
 				<a class="btn btn-primary" href="https://docs.runbooks.help/install">Get started</a>
 			</nav>
@@ -186,6 +187,81 @@
 					free to self-host, modify and use commercially, with no competing-use right, converting to MIT two years after each
 					release.
 				</p>
+			</section>
+
+			<section class="faq" id="faq">
+				<h2>FAQ</h2>
+				<details>
+					<summary>Why is Runbooks source-available rather than open source?</summary>
+					<p>
+						The licence has to do one thing an OSI licence cannot: stop someone reselling
+						Runbooks as their own service. The AGPL does not, because the source is already
+						public and a hyperscaler can run the unmodified code. The Functional Source License
+						prohibits that competing use directly while leaving everyone else alone. It is
+						source-available, not open source, and we describe it that way on purpose.
+					</p>
+				</details>
+				<details>
+					<summary>Can I use Runbooks at work?</summary>
+					<p>
+						Yes. Use it, modify it, self-host it, run it commercially for your own purposes. The
+						only restriction is offering it as a product or service that substitutes for Runbooks.
+					</p>
+				</details>
+				<details>
+					<summary>Will it ever be open source?</summary>
+					<p>
+						Every release converts to MIT two years after it is published. Nothing stays locked
+						forever.
+					</p>
+				</details>
+				<details>
+					<summary>Why don't you accept pull requests?</summary>
+					<p>
+						Runbooks is maintainer-led, not community-led. Issues and discussions are open and
+						welcome; unsolicited pull requests are closed with a pointer to the policy, stated
+						publicly so it is a policy rather than a snub. Reviewing other people's patches is
+						the hidden cost that sinks small projects, and it is the cost we decline on purpose.
+					</p>
+				</details>
+				<details>
+					<summary>Can I contribute?</summary>
+					<p>
+						Rarely, and by invitation after a discussion. Invited contributors sign a CLA so
+						copyright, and therefore the ability to enforce the licence, stays whole.
+						Contributing grants no maintainership and no say over the roadmap.
+					</p>
+				</details>
+				<details>
+					<summary>Does Runbooks phone home?</summary>
+					<p>
+						No. It is one binary with no telemetry. Runbook variables are filled in and
+						substituted in your browser and never sent to the server.
+					</p>
+				</details>
+				<details>
+					<summary>What happens if the project is abandoned?</summary>
+					<p>
+						All the source is released, including anything that was hosted-only. That pairs with
+						the two-year MIT conversion: the source cannot stay closed regardless.
+					</p>
+				</details>
+				<details>
+					<summary>Can I use the name and logo?</summary>
+					<p>
+						The licence grants no rights to the Runbooks name or brand; a trademark policy
+						governs how forks may use them.
+					</p>
+				</details>
+				<details>
+					<summary>Why is there no enterprise tier?</summary>
+					<p>
+						Because we do not want one. Large enterprises are out of scope by choice: no
+						procurement, no on-prem SSO, no "Contact Sales". That is a service decision, not a
+						licence term. The licence lets anyone use the software, including a large company;
+						we simply will not sell to or support one.
+					</p>
+				</details>
 			</section>
 		</main>
 
