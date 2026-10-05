@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Supporters | Runbooks</title>
+		<meta
+			name="description"
+			content="The people who have bought into honour mode. The software is free either way; supporting it earns the honours."
+		/>
+		<link rel="canonical" href="https://runbooks.help/supporters.html" />
+		<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+		<link rel="stylesheet" href="design-system/tokens.css" />
+		<link rel="stylesheet" href="design-system/fonts.css" />
+		<link rel="stylesheet" href="styles.css" />
+		<script>
+			try {
+				if (matchMedia("(prefers-color-scheme: light)").matches) {
+					document.documentElement.dataset.theme = "light";
+				}
+			} catch (e) {}
+		</script>
+	</head>
+	<body>
+		<header class="site-header">
+			<a class="brand" href="/" aria-label="Runbooks home">
+				<img src="design-system/brand/logomark.svg" alt="" width="30" height="30" />
+				<span class="brand-word">run<span>books</span></span>
+			</a>
+			<nav class="site-nav">
+				<a href="https://docs.runbooks.help">Docs</a>
+				<a href="/#pricing">Pricing</a>
+				<a href="/supporters.html">Supporters</a>
+				<a href="/#faq">FAQ</a>
+				<a href="https://github.com/runbooks-help/runbooks">GitHub</a>
+				<a class="btn btn-primary" href="https://docs.runbooks.help/install">Get started</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="hero">
+				<p class="eyebrow">Honour mode</p>
+				<h1>Supporters</h1>
+				<p class="lede">
+					The people who have bought into honour mode. The software is free and public either
+					way: every build is open and the releases are signed. Paying is a choice, and it
+					earns the honours, a place here and the badge for the current major.
+				</p>
+				<p class="section-lede">
+					Entries are opt-in and shown under a name of your choosing. You stay on the list
+					once you have supported; the badge is what lapses when the next major ships.
+				</p>
+			</section>
+
+			<section>
+				<h2>Current supporters</h2>
+				<p class="section-lede">Holders of the current-major badge.</p>
+				<p class="empty">No supporters yet. Be the first.</p>
+			</section>
+
+			<section>
+				<h2>Past supporters</h2>
+				<p class="section-lede">
+					Everyone who has supported an earlier major. Names are kept once given; the list is
+					only reaped, at the maintainer's discretion, to make room and move the spotlight.
+				</p>
+				<p class="empty">Nothing here yet.</p>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="footer-brand">
+				<img src="design-system/brand/logomark.svg" alt="" width="24" height="24" />
+				<span>Runbooks</span>
+			</div>
+			<nav>
+				<a href="https://docs.runbooks.help">Docs</a>
+				<a href="/supporters.html">Supporters</a>
+				<a href="https://github.com/runbooks-help/runbooks">Source</a>
+				<a href="https://github.com/runbooks-help/runbooks/blob/main/LICENSE">Licence</a>
+				<a href="https://github.com/runbooks-help/runbooks/issues">Issues</a>
+			</nav>
+			<p class="colophon">
+				<code>ghcr.io/runbooks-help/runbooks</code>
+			</p>
+		</footer>
+	</body>
+</html>

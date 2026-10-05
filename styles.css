@@ -173,6 +173,10 @@ section {
 	max-width: var(--measure);
 	color: var(--muted);
 }
+.empty {
+	color: var(--muted);
+	font-style: italic;
+}
 
 .grid {
 	display: grid;
@@ -216,6 +220,17 @@ section {
 	color: var(--accent-strong);
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
+}
+.edition-honour {
+	border-color: var(--accent);
+}
+.edition .soon {
+	margin: 0;
+	font-family: var(--font-mono);
+	font-size: var(--text-2xs);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--muted);
 }
 .honour {
 	max-width: var(--measure);

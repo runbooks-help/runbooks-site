@@ -11,7 +11,7 @@ OUT="${1:-_site}"
 rm -rf "$OUT"
 mkdir -p "$OUT/design-system"
 
-cp index.html styles.css CNAME .nojekyll "$OUT/"
+cp index.html supporters.html styles.css CNAME .nojekyll "$OUT/"
 
 curl -fsSL "$BASE/tokens.css" -o "$OUT/design-system/tokens.css"
 curl -fsSL "$BASE/fonts.css" -o "$OUT/design-system/fonts.css"
