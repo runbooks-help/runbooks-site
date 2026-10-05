@@ -55,7 +55,7 @@
 			<section>
 				<h2>Current supporters</h2>
 				<p class="section-lede">Holders of the current-major badge.</p>
-				<p class="empty">No supporters yet. Be the first.</p>
+				<div id="current-supporters"><p class="empty">No supporters yet. Be the first.</p></div>
 			</section>
 
 			<section>
@@ -64,7 +64,7 @@
 					Everyone who has supported an earlier major. Names are kept once given; the list is
 					only reaped, at the maintainer's discretion, to make room and move the spotlight.
 				</p>
-				<p class="empty">Nothing here yet.</p>
+				<div id="past-supporters"><p class="empty">Nothing here yet.</p></div>
 			</section>
 		</main>
 
@@ -84,5 +84,40 @@
 				<code>ghcr.io/runbooks-help/runbooks</code>
 			</p>
 		</footer>
+
+		<script>
+			// The public supporters list lives in Scaleway Object Storage, written by
+			// the billing service on each Stripe webhook. Fetched here so the page is
+			// fresh without a rebuild.
+			const SUPPORTERS_URL =
+				"https://runbooks-supporters.s3.fr-par.scw.cloud/supporters.json";
+
+			function render(sel, names, empty) {
+				const el = document.querySelector(sel);
+				if (!el) return;
+				if (!names || names.length === 0) {
+					el.innerHTML = '<p class="empty">' + empty + "</p>";
+					return;
+				}
+				const ul = document.createElement("ul");
+				ul.className = "supporters";
+				for (const name of names) {
+					const li = document.createElement("li");
+					li.textContent = name; // textContent, so a name cannot inject markup
+					ul.appendChild(li);
+				}
+				el.replaceChildren(ul);
+			}
+
+			fetch(SUPPORTERS_URL, { cache: "no-store" })
+				.then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+				.then((d) => {
+					render("#current-supporters", d.current, "No supporters yet. Be the first.");
+					render("#past-supporters", d.past, "Nothing here yet.");
+				})
+				.catch(() => {
+					/* the empty state already renders; a failed fetch changes nothing */
+				});
+		</script>
 	</body>
 </html>
