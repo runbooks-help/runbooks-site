@@ -273,18 +273,21 @@ section {
 	font-size: var(--text-xs);
 }
 
-/* FAQ */
+/* FAQ: each entry is its own card, with a boxed toggle as the expand cue. */
 .faq details {
-	border-top: 1px solid var(--border);
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-lg);
 }
-.faq details:last-child {
-	border-bottom: 1px solid var(--border);
+.faq details + details {
+	margin-top: var(--space-3);
 }
 .faq summary {
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
-	gap: var(--space-3);
-	padding: var(--space-3) 0;
+	gap: var(--space-4);
+	padding: var(--space-4);
 	font-size: var(--text-md);
 	font-weight: 600;
 	color: var(--text);
@@ -294,17 +297,42 @@ section {
 .faq summary::-webkit-details-marker {
 	display: none;
 }
+.faq summary::marker {
+	content: "";
+}
+.faq summary:hover {
+	background: var(--row-hover);
+	border-radius: var(--radius-lg);
+}
+.faq summary:focus-visible {
+	outline: 2px solid var(--link);
+	outline-offset: -2px;
+	border-radius: var(--radius-lg);
+}
 .faq summary::after {
 	content: "+";
+	flex: none;
+	display: grid;
+	place-items: center;
+	width: 26px;
+	height: 26px;
+	border: 1px solid var(--border-strong);
+	border-radius: var(--radius-sm);
 	font-family: var(--font-mono);
+	font-size: var(--text-md);
+	line-height: 1;
 	color: var(--muted);
 }
-.faq details[open] summary::after {
-	content: "-";
+.faq details[open] summary {
+	border-bottom: 1px solid var(--border);
 }
-.faq p {
+.faq details[open] summary::after {
+	content: "−";
+}
+.faq details p {
 	max-width: var(--measure);
-	margin: 0 0 var(--space-3);
+	margin: 0;
+	padding: var(--space-4);
 	color: var(--muted);
 	font-size: var(--text-sm);
 }
