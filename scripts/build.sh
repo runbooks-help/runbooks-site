@@ -4,7 +4,7 @@
 # tokens and fonts cannot drift from the app.
 set -euo pipefail
 
-VERSION="${DESIGN_SYSTEM_VERSION:-v0.2.1}"
+VERSION="${DESIGN_SYSTEM_VERSION:-v0.3.0}"
 BASE="https://github.com/runbooks-help/design-system/releases/download/${VERSION}"
 OUT="${1:-_site}"
 
@@ -18,5 +18,9 @@ curl -fsSL "$BASE/fonts.css" -o "$OUT/design-system/fonts.css"
 curl -fsSL "$BASE/fonts.tar.gz" | tar xz -C "$OUT/design-system"
 curl -fsSL "$BASE/brand.tar.gz" | tar xz -C "$OUT/design-system"
 cp "$OUT/design-system/favicon.svg" "$OUT/favicon.svg"
+
+# The link preview is served from the site root, so og:image points at a short
+# URL that survives a design-system version bump.
+cp "$OUT/design-system/brand/social-card-on-dark-1200.png" "$OUT/social-card.png"
 
 echo "built $OUT from design-system $VERSION"
