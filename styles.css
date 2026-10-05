@@ -309,25 +309,24 @@ section {
 	outline-offset: -2px;
 	border-radius: var(--radius-lg);
 }
+/* The toggle is drawn from two centred bars rather than a font glyph, so it
+   cannot sit off-centre the way a `+` glyph's metrics can. */
 .faq summary::after {
-	content: "+";
+	content: "";
 	flex: none;
-	display: grid;
-	place-items: center;
 	width: 26px;
 	height: 26px;
 	border: 1px solid var(--border-strong);
 	border-radius: var(--radius-sm);
-	font-family: var(--font-mono);
-	font-size: var(--text-md);
-	line-height: 1;
-	color: var(--muted);
+	background:
+		linear-gradient(var(--muted), var(--muted)) center / 12px 2px no-repeat,
+		linear-gradient(var(--muted), var(--muted)) center / 2px 12px no-repeat;
 }
 .faq details[open] summary {
 	border-bottom: 1px solid var(--border);
 }
 .faq details[open] summary::after {
-	content: "−";
+	background: linear-gradient(var(--muted), var(--muted)) center / 12px 2px no-repeat;
 }
 .faq details p {
 	max-width: var(--measure);
