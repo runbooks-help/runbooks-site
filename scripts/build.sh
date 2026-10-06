@@ -15,6 +15,11 @@ cp index.html supporters.html styles.css CNAME .nojekyll "$OUT/"
 mkdir -p "$OUT/brand"
 cp brand/*.svg "$OUT/brand/"
 
+# The demo clips are rendered artefacts (see the marketing-demos spec); they are
+# committed here under media/ and copied as-is.
+mkdir -p "$OUT/media"
+cp media/* "$OUT/media/"
+
 curl -fsSL "$BASE/tokens.css" -o "$OUT/design-system/tokens.css"
 curl -fsSL "$BASE/fonts.css" -o "$OUT/design-system/fonts.css"
 curl -fsSL "$BASE/fonts.tar.gz" | tar xz -C "$OUT/design-system"

@@ -48,6 +48,7 @@
 			</a>
 			<nav class="site-nav">
 				<a href="https://docs.runbooks.help">Docs</a>
+				<a href="#see-it">See it</a>
 				<a href="#pricing">Pricing</a>
 				<a href="/supporters.html">Supporters</a>
 				<a href="#faq">FAQ</a>
@@ -146,6 +147,138 @@
 							the same runbooks you do.
 						</p>
 					</article>
+				</div>
+			</section>
+
+			<section class="see-it" id="see-it">
+				<h2>See it</h2>
+				<div class="demos">
+					<figure class="demo">
+						<div class="demo-frame">
+							<video
+								class="demo-video"
+								muted
+								loop
+								playsinline
+								preload="none"
+								poster="media/reader-poster.jpg"
+								width="1280"
+								height="800"
+							>
+								<source src="media/reader.mp4" type="video/mp4" />
+							</video>
+							<button
+								type="button"
+								class="demo-expand"
+								data-demo-src="media/reader.mp4"
+								data-demo-poster="media/reader-poster.jpg"
+								aria-label="Enlarge the reader flow clip"
+							>
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
+									<polyline points="15 3 21 3 21 9" />
+									<polyline points="9 21 3 21 3 15" />
+									<line x1="21" y1="3" x2="14" y2="10" />
+									<line x1="3" y1="21" x2="10" y2="14" />
+								</svg>
+							</button>
+						</div>
+						<figcaption>
+							Vars dialog, ticking a step's blocks until it rolls up, the notes
+							timeline, a decision callout, Zen.
+						</figcaption>
+					</figure>
+					<figure class="demo">
+						<div class="demo-frame">
+							<video
+								class="demo-video"
+								muted
+								loop
+								playsinline
+								preload="none"
+								poster="media/quickstart-poster.jpg"
+								width="1152"
+								height="720"
+							>
+								<source src="media/quickstart.mp4" type="video/mp4" />
+							</video>
+							<button
+								type="button"
+								class="demo-expand"
+								data-demo-src="media/quickstart.mp4"
+								data-demo-poster="media/quickstart-poster.jpg"
+								aria-label="Enlarge the Docker quickstart clip"
+							>
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
+									<polyline points="15 3 21 3 21 9" />
+									<polyline points="9 21 3 21 3 15" />
+									<line x1="21" y1="3" x2="14" y2="10" />
+									<line x1="3" y1="21" x2="10" y2="14" />
+								</svg>
+							</button>
+						</div>
+						<figcaption>
+							<code>docker run</code>, a mounted <code>content/</code>, and
+							<code>/llms.txt</code> answering.
+						</figcaption>
+					</figure>
+					<figure class="demo">
+						<div class="demo-frame">
+							<video
+								class="demo-video"
+								muted
+								loop
+								playsinline
+								preload="none"
+								poster="media/agent-surface-poster.jpg"
+								width="1152"
+								height="720"
+							>
+								<source src="media/agent-surface.mp4" type="video/mp4" />
+							</video>
+							<button
+								type="button"
+								class="demo-expand"
+								data-demo-src="media/agent-surface.mp4"
+								data-demo-poster="media/agent-surface-poster.jpg"
+								aria-label="Enlarge the agent surface clip"
+							>
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
+									<polyline points="15 3 21 3 21 9" />
+									<polyline points="9 21 3 21 3 15" />
+									<line x1="21" y1="3" x2="14" y2="10" />
+									<line x1="3" y1="21" x2="10" y2="14" />
+								</svg>
+							</button>
+						</div>
+						<figcaption>
+							<code>/llms.txt</code>, a raw <code>/&lt;slug&gt;.md</code>, and the
+							search API.
+						</figcaption>
+					</figure>
 				</div>
 			</section>
 
@@ -324,5 +457,62 @@
 				<code>ghcr.io/runbooks-help/runbooks</code>
 			</p>
 		</footer>
+		<dialog class="demo-lightbox" id="demo-lightbox" aria-label="Enlarged demo clip">
+			<video class="demo-lightbox-video" controls muted loop playsinline preload="none"></video>
+			<button type="button" class="demo-lightbox-close" aria-label="Close">
+				<svg
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					aria-hidden="true"
+				>
+					<line x1="6" y1="6" x2="18" y2="18" />
+					<line x1="18" y1="6" x2="6" y2="18" />
+				</svg>
+			</button>
+		</dialog>
+		<script>
+			const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+
+			// Inline clips are muted autoplaying thumbnails; under reduced motion they
+			// never autoplay, so the poster is what is shown. They carry no controls:
+			// clicking a clip opens the enlarged copy and playback happens there.
+			if (!reduce.matches) {
+				const io = new IntersectionObserver(
+					(entries) => {
+						for (const e of entries) {
+							if (e.isIntersecting) e.target.play().catch(() => {});
+							else e.target.pause();
+						}
+					},
+					{ threshold: 0.4 },
+				);
+				for (const v of document.querySelectorAll(".demo-video")) io.observe(v);
+			}
+
+			// Click anywhere on a clip — including the expand button, which is the
+			// keyboard target — to open it enlarged in a native dialog.
+			const lightbox = document.getElementById("demo-lightbox");
+			const big = lightbox.querySelector(".demo-lightbox-video");
+			for (const frame of document.querySelectorAll(".demo-frame")) {
+				frame.addEventListener("click", () => {
+					const button = frame.querySelector(".demo-expand");
+					big.poster = button.dataset.demoPoster;
+					big.src = button.dataset.demoSrc;
+					lightbox.showModal();
+					if (!reduce.matches) big.play().catch(() => {});
+				});
+			}
+			lightbox.addEventListener("close", () => {
+				big.pause();
+				big.removeAttribute("src"); // drop the buffered clip and its poster
+				big.load();
+			});
+			lightbox.addEventListener("click", (e) => {
+				if (e.target === lightbox) lightbox.close(); // backdrop click
+			});
+		</script>
 	</body>
 </html>

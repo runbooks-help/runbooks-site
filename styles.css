@@ -267,6 +267,110 @@ html[data-theme="light"] .trusted-on-light {
 	color: var(--text) !important;
 }
 
+/* See it: the demo clips, one row of three and stacked on narrow screens. The
+   videos autoplay muted only once on screen; the poster is the reduced-motion
+   and no-JS fallback. */
+.see-it .demos {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-4);
+	margin-top: var(--space-5);
+}
+@media (min-width: 900px) {
+	.see-it .demos {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+.demo {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+.demo-video {
+	display: block;
+	width: 100%;
+	height: auto;
+	cursor: pointer;
+	border: 1px solid var(--border);
+	border-radius: var(--radius-lg);
+	background: var(--code-bg);
+}
+.demo figcaption {
+	color: var(--muted);
+	font-size: var(--text-sm);
+}
+.demo-frame {
+	position: relative;
+	cursor: pointer;
+}
+/* Enlarge: a small button in the corner, since the inline clips are thumbnail
+   sized and the terminal text is not readable at that scale. */
+.demo-expand {
+	position: absolute;
+	top: var(--space-2);
+	right: var(--space-2);
+	display: grid;
+	place-items: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 1px solid var(--border-strong);
+	border-radius: var(--radius-sm);
+	background: var(--surface);
+	color: var(--text);
+	cursor: pointer;
+}
+.demo-expand:hover {
+	border-color: var(--link);
+	color: var(--link);
+}
+.demo-expand svg,
+.demo-lightbox-close svg {
+	width: 16px;
+	height: 16px;
+}
+
+/* The enlarged clip: a native dialog, up to the full reading width. */
+.demo-lightbox {
+	margin: auto;
+	max-width: min(1200px, 92vw);
+	padding: 0;
+	border: none;
+	background: transparent;
+	overflow: visible;
+}
+.demo-lightbox::backdrop {
+	background: rgb(0 0 0 / 0.72);
+}
+.demo-lightbox-video {
+	display: block;
+	width: 100%;
+	height: auto;
+	background: var(--code-bg);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-lg);
+}
+.demo-lightbox-close {
+	position: absolute;
+	top: var(--space-2);
+	right: var(--space-2);
+	display: grid;
+	place-items: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 1px solid var(--border-strong);
+	border-radius: var(--radius-sm);
+	background: var(--surface);
+	color: var(--text);
+	cursor: pointer;
+}
+.demo-lightbox-close:hover {
+	border-color: var(--link);
+	color: var(--link);
+}
+
 /* Editions */
 .edition .price {
 	font-family: var(--font-mono);
