@@ -238,6 +238,9 @@ html[data-theme="light"] .trusted-on-light {
 	gap: var(--space-4);
 	margin-top: var(--space-5);
 }
+.grid + .section-lede {
+	margin-top: var(--space-5);
+}
 
 .card {
 	background: var(--surface);
