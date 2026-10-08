@@ -150,6 +150,45 @@
 				</div>
 			</section>
 
+			<section class="loop">
+				<h2>The runbook gets less wrong</h2>
+				<p class="section-lede">
+					Most tools assume a runbook is correct once it is written. It isn't. The system
+					moves, the edge case never came up, and the author guessed. So the question is not
+					<em>is the runbook right?</em> It is <em>how fast does it get "less wrong", and can it
+					self-correct?</em>
+				</p>
+				<div class="grid">
+					<article class="card">
+						<h3>Capture</h3>
+						<p>
+							Ticking a step writes a timestamped line to the notes, so every run leaves a
+							trace. Keep it local, or sync it to a git repo you own.
+						</p>
+					</article>
+					<article class="card">
+						<h3>Review</h3>
+						<p>
+							Point an agent at the runbook and its notes. It suggests classified changes: a
+							step to fix, a lookalike to add, an environment fact to generalise, or a note
+							that is not the runbook's job at all.
+						</p>
+					</article>
+					<article class="card">
+						<h3>Revise</h3>
+						<p>
+							You decide and edit. The reviewer suggests; it never rewrites a procedure on
+							its own. Each run leaves the runbook a little less wrong.
+						</p>
+					</article>
+				</div>
+				<p class="section-lede">
+					A symptom also looks like other things. A <strong>lookalike</strong> records what else
+					it resembles, and how to rule it out, so the next person spends a query instead of
+					twenty minutes. <a href="https://docs.runbooks.help/why">Read why</a>.
+				</p>
+			</section>
+
 			<section class="see-it" id="see-it">
 				<h2>See it</h2>
 				<div class="demos">
