@@ -11,7 +11,7 @@ OUT="${1:-_site}"
 rm -rf "$OUT"
 mkdir -p "$OUT/design-system"
 
-cp index.html supporters.html styles.css CNAME .nojekyll "$OUT/"
+cp index.html supporters.html changelog.html styles.css CNAME .nojekyll "$OUT/"
 mkdir -p "$OUT/brand"
 cp brand/*.svg "$OUT/brand/"
 

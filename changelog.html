@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Changelog | Runbooks</title>
+		<meta
+			name="description"
+			content="Every Runbooks release, newest first: the version, the theme of the milestone behind it, and what shipped."
+		/>
+		<link rel="canonical" href="https://runbooks.help/changelog.html" />
+		<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+		<link rel="stylesheet" href="design-system/tokens.css" />
+		<link rel="stylesheet" href="design-system/fonts.css" />
+		<link rel="stylesheet" href="styles.css" />
+		<script>
+			// The design system is dark-first; honour a light OS preference.
+			try {
+				if (matchMedia("(prefers-color-scheme: light)").matches) {
+					document.documentElement.dataset.theme = "light";
+				}
+			} catch (e) {}
+		</script>
+	</head>
+	<body>
+		<header class="site-header">
+			<a class="brand" href="/" aria-label="Runbooks home">
+				<img src="design-system/brand/logomark.svg" alt="" width="30" height="30" />
+				<span class="brand-word">run<span>books</span></span>
+			</a>
+			<nav class="site-nav">
+				<a href="https://docs.runbooks.help">Docs</a>
+				<a href="/#see-it">See it</a>
+				<a href="/#pricing">Pricing</a>
+				<a href="/supporters.html">Supporters</a>
+				<a href="/changelog.html">Changelog</a>
+				<a href="/#faq">FAQ</a>
+				<a href="https://github.com/runbooks-help/runbooks">GitHub</a>
+				<a class="btn btn-primary" href="https://docs.runbooks.help/install">Get started</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="hero">
+				<p class="eyebrow">Releases</p>
+				<h1>Changelog</h1>
+				<p class="lede">
+					What shipped, and why. Each release is a signed container image with public SBOMs;
+					the entry links to its GitHub Release for the digest and the attestation.
+				</p>
+			</section>
+
+			<section>
+				<p class="eyebrow">v1.1.0 · unreleased</p>
+				<h2>Improvement loop</h2>
+				<p class="section-lede">
+					A runbook is always wrong; what matters is how fast it gets less wrong. This release
+					builds the loop that corrects it.
+				</p>
+				<ul>
+					<li>
+						<strong>Lookalikes.</strong> A <code>&gt; [!lookalike]</code> block records what a
+						symptom also resembles, and how to rule it out.
+					</li>
+					<li>
+						<strong>A reviewer skill.</strong> Reads a runbook and its captured notes and
+						suggests classified changes: a step to fix, a lookalike to add, a fact to
+						generalise, or a note that is not the runbook's job. It suggests; you edit.
+					</li>
+					<li>
+						<strong>Execution records.</strong> The captured notes and the runbook as executed,
+						served to a remote reviewer at <code>/api/runbooks/v1/notes</code>.
+					</li>
+					<li>
+						<strong>Run outcomes.</strong> Completed, reopened or skipped per step across runs:
+						described, never scored.
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<p class="eyebrow">v1.0.0 · 2026-10-05</p>
+				<h2>Meticulous Mallard</h2>
+				<p class="section-lede">The first stable major.</p>
+				<ul>
+					<li>Honour-mode self-hosting: the whole app, source-available, nothing gated.</li>
+					<li>The read-only agent surface: <code>/llms.txt</code>, <code>/&lt;slug&gt;.md</code>
+						and the search API.</li>
+					<li>The git-backed content source, with a last-good cache.</li>
+				</ul>
+				<p>
+					<a href="https://github.com/runbooks-help/runbooks/releases/tag/v1.0.0"
+						>Release notes, image digest and SBOMs</a
+					>
+				</p>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="footer-brand">
+				<img src="design-system/brand/logomark.svg" alt="" width="24" height="24" />
+				<span>Runbooks</span>
+			</div>
+			<nav>
+				<a href="https://docs.runbooks.help">Docs</a>
+				<a href="/supporters.html">Supporters</a>
+				<a href="/changelog.html">Changelog</a>
+				<a href="https://github.com/runbooks-help/runbooks">Source</a>
+				<a href="https://github.com/runbooks-help/runbooks/blob/main/LICENSE">Licence</a>
+				<a href="https://github.com/runbooks-help/runbooks/issues">Issues</a>
+			</nav>
+			<p class="colophon">
+				<code>ghcr.io/runbooks-help/runbooks</code>
+			</p>
+		</footer>
+	</body>
+</html>
