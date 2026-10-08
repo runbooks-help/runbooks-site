@@ -368,9 +368,9 @@
 						<h3>Honour mode</h3>
 						<p class="price">£20 per major</p>
 						<p>
-							Gates nothing. Every build is public and the releases are signed, so paying
-							buys <strong>the honours</strong>: a spot on the supporters page and the badge
-							for the current major. It funds the work.
+							Gates nothing. Every build is public and we sign the releases, so paying buys
+							<strong>the honours</strong>: a spot on the supporters page and the badge for the
+							current major. It funds the work.
 						</p>
 						<a class="btn btn-primary" href="https://buy.stripe.com/28EeVf8eNaiyac56SqgIo00">Buy honour mode</a>
 					</article>
@@ -394,6 +394,16 @@
 			<section class="faq" id="faq">
 				<h2>FAQ</h2>
 				<p class="section-lede">Click a question to open it.</p>
+				<details>
+					<summary>How does a runbook stay correct?</summary>
+					<p>
+						It doesn't stay correct, and no runbook does: the system moves, and the edge case
+						you hit was never written down. Runbooks treats that as the norm. Ticking a step
+						records what you did; point an agent at the runbook and its notes and it suggests
+						classified changes; you decide and edit. Every run leaves the runbook a little less
+						wrong. <a href="https://docs.runbooks.help/why">Read why</a>.
+					</p>
+				</details>
 				<details>
 					<summary>Why is Runbooks source-available rather than open source?</summary>
 					<p>
@@ -421,7 +431,7 @@
 				<details>
 					<summary>What do I actually get for paying?</summary>
 					<p>
-						Nothing functional, on purpose. Every build is public and the releases are signed, so
+						Nothing functional, on purpose. Every build is public and we sign the releases, so
 						honour mode gates nothing: the software runs identically whether or not you pay. Paying
 						earns <strong>the honours</strong>, an opt-in place on the
 						<a href="/supporters.html">supporters page</a> under a name you choose, and the badge
@@ -434,7 +444,7 @@
 					<summary>Why don't you accept pull requests?</summary>
 					<p>
 						Runbooks is maintainer-led, not community-led. Issues and discussions are open and
-						welcome; unsolicited pull requests are closed with a pointer to the policy, stated
+						welcome; we close unsolicited pull requests with a pointer to the policy, stated
 						publicly so it is a policy rather than a snub. Reviewing other people's patches is
 						the hidden cost that sinks small projects, and it is the cost we decline on purpose.
 					</p>
@@ -457,7 +467,7 @@
 				<details>
 					<summary>What happens if the project is abandoned?</summary>
 					<p>
-						All the source is released, including anything that was hosted-only. That pairs with
+						We release all the source, including anything that was hosted-only. That pairs with
 						the two-year MIT conversion: the source cannot stay closed regardless.
 					</p>
 				</details>
